@@ -3,64 +3,58 @@
 # 6 7 8
 
 
-
-
-# a = int(input('iveskite skaiciu'))
-def tikrinam():
-    if sarasas[0] == sarasas[3] == sarasas[6]:
+def tikrinam(S):
+    if S[0] == S[3] == S[6]:
         print("Laimejote")
-    if sarasas[1] == sarasas[4] == sarasas[7]:
+    if S[1] == S[4] == S[7]:
         print("Laimejote")
-    if sarasas[2] == sarasas[5] == sarasas[8]:
+    if S[2] == S[5] == S[8]:
         print("Laimejote")
-    if sarasas[0] == sarasas[1] == sarasas[2]:
+    if S[0] == S[1] == S[2]:
         print("Laimejote")
-    if sarasas[3] == sarasas[4] == sarasas[5]:
+    if S[3] == S[4] == S[5]:
         print("Laimejote")
-    if sarasas[6] == sarasas[7] == sarasas[8]:
+    if S[6] == S[7] == S[8]:
         print("Laimejote")
-    if sarasas[0] == sarasas[4] == sarasas[8]:
+    if S[0] == S[4] == S[8]:
         print("Laimejote")
-    if sarasas[2] == sarasas[4] == sarasas[6]:
+    if S[2] == S[4] == S[6]:
         print("Laimejote")
-
-
-
 
 Sarasas = ('7 8 9 \n4 5 6 \n1 2 3')
-sarasas = Sarasas
+
 
 while True:
     ivedimas = int(input('iveskite pasirinkima: '))
-
+    tikrinam(Sarasas)
     match ivedimas:
         case 1:
-            sarasas = sarasas.replace('1', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('1', 'X')
+            print(Sarasas)
         case 2:
-            sarasas = sarasas.replace('2', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('2', 'X')
+            print(Sarasas)
         case 3:
-            sarasas = sarasas.replace('3', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('3', 'X')
+            print(Sarasas)
         case 4:
-            sarasas = sarasas.replace('4', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('4', 'X')
+            print(Sarasas)
         case 5:
-            sarasas = sarasas.replace('5', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('5', 'X')
+            print(Sarasas)
         case 6:
-            sarasas = sarasas.replace('6', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('6', 'X')
+            print(Sarasas)
         case 7:
-            sarasas = sarasas.replace('7', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('7', 'X')
+            print(Sarasas)
         case 8:
-            sarasas = sarasas.replace('8', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('8', 'X')
+            print(Sarasas)
         case 9:
-            sarasas = sarasas.replace('9', 'X')
-            print(sarasas)
+            Sarasas = Sarasas.replace('9', 'X')
+            print(Sarasas)
         case 0:
+            print('Aciu uz zaidima')
             break
-
