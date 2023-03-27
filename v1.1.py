@@ -48,4 +48,5 @@ def zaidimas(sarasas):
 
 Sarasas = ('7 8 9\n4 5 6\n1 2 3')
 
+
 zaidimas(Sarasas)
