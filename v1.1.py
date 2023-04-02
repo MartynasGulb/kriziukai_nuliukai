@@ -1,13 +1,14 @@
 def tikrinam_ar_laimejo(sarasas,move,zaidejas):
-    if move !=9:
+    if 4<move <=9:
         for combination in [(0, 6, 12), (2, 8, 14), (4, 10, 16),
                             (0, 2, 4), (6, 8, 10), (12, 14, 16),
                             (0, 8, 16), (4, 8, 12)]:
             if sarasas[combination[0]] == sarasas[combination[1]] == sarasas[combination[2]]:
                 print("Laimejote", zaidejas)
+                sarasas = ()
                 return dar_karta()
 
-    elif move == 9:   #todo kad jeigu visi
+    elif move == 9:
         print('lygiosios')
         return dar_karta()
 
@@ -31,10 +32,12 @@ def dar_karta():
     klausimas = input('Ar norite zaisti dar karta?\n Iveskite T/N ')
     atsakymas = klausimas.upper()
     if atsakymas == 'T':
-        move = 0
+
         return True
     elif atsakymas == 'N':
         print('Aciu uz zaidima')
+        return False
+    else:
         return False
 
 def zaidimas():
@@ -50,9 +53,8 @@ def zaidimas():
         if tikrinam_ar_laimejo(sarasas,move,zaidejas) is True:
             sarasas = ('7 8 9\n4 5 6\n1 2 3')
             move = 0
-
-        elif tikrinam_ar_laimejo(sarasas,move,zaidejas) is False:
-            break
+        # else:
+        #     continue # todo
 
 
 
@@ -63,7 +65,12 @@ def zaidimas():
 
 
 
-zaidimas()
+listas = [7,8,9,
+          4,5,6,
+          1,2,3]
+
+print(listas)
+# zaidimas()
 # move = 0
 # zaidejas = 'X'
 # sarasas = ('1 8 9\n1 5 6\n1 2 3')
