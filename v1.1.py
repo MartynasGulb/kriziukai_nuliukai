@@ -63,16 +63,5 @@ def zaidimas():
         else:
             zaidejas = 'X'
 
+zaidimas()
 
-
-listas = [7,8,9,
-          4,5,6,
-          1,2,3]
-
-print(listas)
-# zaidimas()
-# move = 0
-# zaidejas = 'X'
-# sarasas = ('1 8 9\n1 5 6\n1 2 3')
-#
-# tikrinam_ar_laimejo(sarasas,move,zaidejas)
