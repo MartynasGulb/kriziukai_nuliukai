@@ -8,21 +8,22 @@ def tikrinam_ar_laimejo(sarasas,move,zaidejas):
                 print("Laimejote", zaidejas)
                 if dar_karta() == False:
                     sys.exit()
-
+                else:
+                    return True
     if move == 9:
         print('lygiosios')
         if dar_karta() == False:
             sys.exit()
+        else:
+            return True
 
-def sutapimas(ivedimas):
-    return
 def ivestis(zaidejas):
     while True:
         try:
             ivedimas = int(input(f'zaidejas {zaidejas} iveskite kuri skaiciu norite pasirinkiti | 1-9|: '))
 
             if ivedimas in range(0, 9):
-                ivedimas
+                print()
             else:
                 print('Iveskite tinkama skaiciu !')
         except UnboundLocalError:
@@ -37,9 +38,21 @@ def ivestis(zaidejas):
                 return True
         return ivedimas
 
-
 def pakeitimas (ivedimas,sarasas,zaidejas):
-     return sarasas.replace(str(ivedimas),zaidejas)
+    while True:
+        try:
+            antras = list(sarasas.split())
+            antras.remove(str(ivedimas))
+        # print(antras)
+        # if str(pakeistas)  in antras:
+        #     print('nerado tokio')
+
+        except ValueError:
+            print('jau panaudotas skaicius ')
+            ivedimas = ivestis(zaidejas)
+        return sarasas.replace(str(ivedimas),zaidejas)
+
+# def patikrinam(ivedimas,sarasas,zaidejas):
 
 def dar_karta():
     klausimas = input('Ar norite pradeti is naujo?\n Iveskite T/N ')
@@ -50,6 +63,9 @@ def dar_karta():
         print('Aciu uz zaidima')
         return False
 
+def botas(zaidejas):
+    if zaidejas == 'X':
+        print()
 
 def zaidimas():
     move = 0
@@ -73,7 +89,7 @@ def zaidimas():
         else:
             zaidejas = 'X'
 
-
-
-
-zaidimas()
+print('Su kuo norite zaisti? \nRoboto ar Zmogumi?')
+su_kuo = input('R- su robotu\nZ-su zmogumi')
+print(su_kuo)
+# zaidimas()
