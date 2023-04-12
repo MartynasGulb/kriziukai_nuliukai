@@ -6,11 +6,13 @@ def tikrinam_ar_laimejo(sarasas,move,zaidejas):
                             (0, 8, 16), (4, 8, 12)]:
             if sarasas[combination[0]] == sarasas[combination[1]] == sarasas[combination[2]]:
                 print("Laimejote", zaidejas)
-                return dar_karta()
+                if dar_karta() == False:
+                    sys.exit()
 
-    elif move == 9:
+    if move == 9:
         print('lygiosios')
-        return dar_karta()
+        if dar_karta() == False:
+            sys.exit()
 
 def sutapimas(ivedimas):
     return
@@ -18,16 +20,22 @@ def ivestis(zaidejas):
     while True:
         try:
             ivedimas = int(input(f'zaidejas {zaidejas} iveskite kuri skaiciu norite pasirinkiti | 1-9|: '))
-            if ivedimas == 0:
-                if dar_karta() == False:
-                    sys.exit()
+
             if ivedimas in range(0, 9):
-                return ivedimas
+                ivedimas
             else:
                 print('Iveskite tinkama skaiciu !')
-
+        except UnboundLocalError:
+            print('Tai nera skaicius')
         except:
             print('Tai nera skaicius')
+
+        if ivedimas == 0:
+            if dar_karta() == False:
+                sys.exit()
+            else:
+                return True
+        return ivedimas
 
 
 def pakeitimas (ivedimas,sarasas,zaidejas):
@@ -37,7 +45,6 @@ def dar_karta():
     klausimas = input('Ar norite pradeti is naujo?\n Iveskite T/N ')
     atsakymas = klausimas.upper()
     if atsakymas == 'T':
-
         return True
     elif atsakymas == 'N':
         print('Aciu uz zaidima')
@@ -51,6 +58,9 @@ def zaidimas():
     print(sarasas)
     while True:
         ivedimas = ivestis(zaidejas)
+        if ivedimas is True:
+            sarasas = ('7 8 9\n4 5 6\n1 2 3')
+            move = 0
         move += 1
         sarasas = pakeitimas(ivedimas, sarasas, zaidejas)
         print(sarasas)
