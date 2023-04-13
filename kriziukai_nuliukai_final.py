@@ -1,6 +1,8 @@
 import sys
-def tikrinam_ar_laimejo(sarasas,move,zaidejas,laimetojai):
-    if 5<=move <=9:
+
+
+def tikrinam_ar_laimejo(sarasas, move, zaidejas, laimetojai):
+    if 5 <= move <= 9:
         for combination in [(0, 6, 12), (2, 8, 14), (4, 10, 16),
                             (0, 2, 4), (6, 8, 10), (12, 14, 16),
                             (0, 8, 16), (4, 8, 12)]:
@@ -22,10 +24,12 @@ def tikrinam_ar_laimejo(sarasas,move,zaidejas,laimetojai):
         else:
             return True
 
+
 def laimejimai(laimejimai, zaidejas):
     if zaidejas not in laimejimai:
         laimejimai[zaidejas] = 0
     laimejimai[zaidejas] += 1
+
 
 def ivestis(zaidejas):
     while True:
@@ -34,20 +38,21 @@ def ivestis(zaidejas):
             ivedimas = int(ivedimas)
             if ivedimas in range(1, 10):
                 return ivedimas
-            elif ivedimas == 0 :
+            elif ivedimas == 0:
                 if dar_karta() == False:
                     sys.exit()
                 else:
                     return True
-            elif 1 > ivedimas or ivedimas >9.1 :
+            elif 1 > ivedimas or ivedimas > 9.1:
                 print('Iveskite tinkama skaiciu !')
             elif ivedimas is not int:
                 print('Tai nera skaicius')
 
-        except TypeError :
+        except TypeError:
             print('Tai nera skaicius')
         except ValueError:
             print('Tai nera skaicius')
+
 
 def pakeitimas(ivedimas, sarasas, zaidejas):
     while True:
@@ -60,6 +65,7 @@ def pakeitimas(ivedimas, sarasas, zaidejas):
         else:
             return sarasas.replace(str(ivedimas), zaidejas)
 
+
 def dar_karta():
     klausimas = input('Ar norite pradeti is naujo?\n Iveskite T/N ')
     atsakymas = klausimas.upper()
@@ -68,6 +74,7 @@ def dar_karta():
     elif atsakymas == 'N':
         print('Aciu uz zaidima')
         return False
+
 
 def zaidimas():
     move = 0
@@ -83,7 +90,7 @@ def zaidimas():
         move += 1
         sarasas = pakeitimas(ivedimas, sarasas, zaidejas)
         print(sarasas)
-        tikrinam = tikrinam_ar_laimejo(sarasas,move,zaidejas, laimetojai)
+        tikrinam = tikrinam_ar_laimejo(sarasas, move, zaidejas, laimetojai)
         if tikrinam is True:
             sarasas = ('7 8 9\n4 5 6\n1 2 3')
             print(sarasas)
@@ -92,5 +99,6 @@ def zaidimas():
             zaidejas = 'O'
         else:
             zaidejas = 'X'
+
 
 zaidimas()
